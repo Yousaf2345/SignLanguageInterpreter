@@ -1,0 +1,26 @@
+import pyttsx3
+
+class TextToSpeech:
+    def __init__(self):
+        self.engine = pyttsx3.init()
+        
+        # Optional: Adjust speech rate
+        self.engine.setProperty('rate', 150)  # Speed of speech
+        
+        # Optional: Set the voice (uncomment and modify if needed)
+        # voices = self.engine.getProperty('voices')
+        # self.engine.setProperty('voice', voices[0].id)  # Index 0 for the default voice
+
+    def speak(self, text):
+        """
+        Convert text to speech and play it.
+        
+        :param text: The text to be spoken
+        """
+        self.engine.say(text)
+        self.engine.runAndWait()
+
+# Example usage
+if __name__ == "__main__":
+    tts = TextToSpeech()
+    tts.speak("Hello, this is a test of the text to speech system.")
